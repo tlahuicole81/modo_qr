@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Asociados y Eventos</title>
+  <meta name="theme-color" content="#1459a6">
+  <link rel="stylesheet" href="estilo-fmdmye.css">
+</head>
+
+<body class="portal-page">
+  <header class="portal-header">
+    <div class="header-inner">
+      <div class="brand-mark" aria-hidden="true">FM</div>
+      <div><p class="eyebrow">FMDMYE · PORTAL DE GESTIÓN</p>
+      <h1>Gestión de asociados y eventos</h1>
+      <p class="header-description">La información de tu asociación, en un solo lugar.</p></div>
+    </div>
+  </header>
+
+  
+  <nav class="menu" aria-label="Secciones del portal">
+    <button id="btnAsociados" onclick="showContent('usuarios')">Asociados</button>
+    <button id="btnClubes" onclick="showContent('clubes')">Clubes</button>
+    <button id="btnEventos" onclick="showContent('eventos')">Eventos</button>
+    <button id="btnCompetencia" onclick="showContent('divCompetencias')">Competencias</button>
+    <button id="btnRUD" onclick="showContent('rud')">RUD</button>
+  </nav>
+  <p class="portal-guide">Cargando las secciones del portal…</p>
+  
+  
+  <div id="slot-asociados"></div>
+
+  
+  <div id="slot-clubes"></div>
+
+  
+  <div id="slot-eventos"></div>
+  
+
+  
+  <div id="slot-competencias"></div>
+
+  <div id="slot-rud"></div>
+  <div id="portalAvisos" class="portal-alert" role="status" hidden></div>
+  <div id="toast" class="toast"></div>
+  <script src="utilidades.js"></script>
+  <script src="carga-secciones.js"></script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<div class="content" id="usuarios">
+<h2>Gestión de Asociados</h2>
+<label for="clubSelect">Filtrar por club:</label>
+<select id="clubSelect">
+<option value="Todos los asociados">Todos los asociados</option>
+</select>
+<label for="buscarAsociado">Buscar por nombre o apellidos:</label>
+<div class="busqueda-asociados">
+<input aria-describedby="ayudaBusquedaAsociados estadoBusquedaAsociados" autocomplete="off" id="buscarAsociado" placeholder="Ej. María López" type="search"/>
+<button class="boton-secundario" disabled="" id="limpiarBusquedaAsociado" type="button">Limpiar</button>
+</div>
+<p class="ayuda-busqueda" id="ayudaBusquedaAsociados">Busca entre los asociados del club seleccionado.</p>
+<p aria-live="polite" class="estado-busqueda" id="estadoBusquedaAsociados" role="status"></p>
+<label for="userSelect" id="indicadorAsociados">Asociados:</label>
+<select id="userSelect">
+<option value="">Selecciona un asociado</option>
+</select>
+
+<section id="userDetails" style="display:none" aria-label="Ficha del asociado">
+  <header class="asociado-cabecera">
+    <div id="previewImgAsociado" class="foto-asociado"></div>
+    <div><p id="fichaID" class="asociado-id"></p><h3 id="asociadoNombre"></h3>
+    <p id="afiliadoResumen" class="vigencia" role="status"></p></div>
+  </header>
+  <div class="asociado-tabs" role="tablist" aria-label="Información del asociado">
+    <button id="tabGeneral" type="button" role="tab" aria-selected="true" aria-controls="panelGeneral">Información general</button>
+    <button id="tabCapacitaciones" type="button" role="tab" aria-selected="false" aria-controls="panelCapacitaciones" tabindex="-1">Capacitaciones</button>
+  </div>
+  <section id="panelGeneral" role="tabpanel" aria-labelledby="tabGeneral">
+  <form id="formGeneral">
+<section class="datos-grupo"><h4>Datos personales</h4><div class="datos-grid"><div class="dato"><label for="afiliadoVigenteInput">Afiliado vigente</label><span id="afiliadoVigente"></span><select class="edit-field-asociados" id="afiliadoVigenteInput"><option value="">Sin información</option><option value="true">Vigente</option><option value="false">No vigente</option></select></div><div class="dato">
+<label for="nombreInput">Nombre</label>
+<span id="nombre"></span>
+<input class="edit-field-asociados" id="nombreInput" type="text"/>
+</div><div class="dato">
+<label for="apellidoPaternoInput">Apellido paterno</label>
+<span id="apellidoPaterno"></span>
+<input class="edit-field-asociados" id="apellidoPaternoInput" type="text"/>
+</div><div class="dato">
+<label for="apellidoMaternoInput">Apellido materno</label>
+<span id="apellidoMaterno"></span>
+<input class="edit-field-asociados" id="apellidoMaternoInput" type="text"/>
+</div><div class="dato">
+<label for="fechaNacimientoInput">Fecha de nacimiento</label>
+<span id="fechaNacimiento"></span>
+<input class="edit-field-asociados" id="fechaNacimientoInput" name="fechaNacimiento" required="" type="date"/>
+</div><div class="dato">
+<label for="curpInput">CURP</label>
+<span id="curp"></span>
+<input class="edit-field-asociados" id="curpInput" type="text"/>
+</div><div class="dato">
+<label for="generoInput">Género</label>
+<span id="genero"></span>
+<select class="edit-field-asociados" id="generoInput">
+</select>
+</div><div class="dato">
+<label for="escolaridadInput">Escolaridad</label>
+<span id="escolaridad"></span>
+<select class="edit-field-asociados" id="escolaridadInput">
+</select>
+</div></div></section><section class="datos-grupo"><h4>Contacto y domicilio</h4><div class="datos-grid"><div class="dato">
+<label for="telefonoInput">Teléfono</label>
+<span id="telefono"></span>
+<input class="edit-field-asociados" id="telefonoInput" type="text"/>
+</div><div class="dato">
+<label for="emailInput">e-mail</label>
+<span id="email"></span>
+<input class="edit-field-asociados" id="emailInput" type="text"/>
+</div><div class="dato">
+<label for="estadoInput">Estado</label>
+<span id="estado"></span>
+<select class="edit-field-asociados" id="estadoInput">
+</select>
+</div><div class="dato">
+<label for="municipioInput">Municipio</label>
+<span id="municipio"></span>
+<input class="edit-field-asociados" id="municipioInput" type="text"/>
+</div><div class="dato">
+<label for="coloniaInput">Colonia</label>
+<span id="colonia"></span>
+<input class="edit-field-asociados" id="coloniaInput" type="text"/>
+</div><div class="dato">
+<label for="calleNumInput">Calle y número</label>
+<span id="calleNum"></span>
+<input class="edit-field-asociados" id="calleNumInput" type="text"/>
+</div><div class="dato">
+<label for="zipInput">Código postal</label>
+<span id="zip"></span>
+<input class="edit-field-asociados" id="zipInput" type="text"/>
+</div></div></section><section class="datos-grupo"><h4>Emergencias y salud</h4><div class="datos-grid"><div class="dato">
+<label for="contEmergenciaInput">Contacto de emergencia</label>
+<span id="contEmergencia"></span>
+<input class="edit-field-asociados" id="contEmergenciaInput" type="text"/>
+</div><div class="dato">
+<label for="telEmergenciaInput">Teléfono de emergencia</label>
+<span id="telEmergencia"></span>
+<input class="edit-field-asociados" id="telEmergenciaInput" type="text"/>
+</div><div class="dato">
+<label for="enfermedadesInput">Enfermedades</label>
+<span id="enfermedades"></span>
+<input class="edit-field-asociados" id="enfermedadesInput" type="text"/>
+</div><div class="dato">
+<label for="alergiasInput">Alergias</label>
+<span id="alergias"></span>
+<input class="edit-field-asociados" id="alergiasInput" type="text"/>
+</div><div class="dato">
+<label for="tipoSangreInput">Tipo de sangre</label>
+<span id="tipoSangre"></span>
+<select class="edit-field-asociados" id="tipoSangreInput">
+</select>
+</div></div></section><section class="datos-grupo"><h4>Datos de asociación</h4><div class="datos-grid"><div class="dato">
+<label for="clubInput">Club</label>
+<span id="club"></span>
+<select class="edit-field-asociados" id="clubInput">
+</select>
+</div><div class="dato">
+<label>Disciplinas</label>
+<span id="disciplinas"></span>
+<fieldset class="edit-field-asociados">
+<div class="edit-field-asociados" id="disciplinasInput">
+</div>
+</fieldset>
+</div><div class="dato">
+<label for="funcionInput">Función</label>
+<span id="funcion"></span>
+<select class="edit-field-asociados" id="funcionInput">
+</select>
+</div><div class="dato">
+<label for="subfuncionInput">Subfunción</label>
+<span id="subfuncion"></span>
+<select class="edit-field-asociados" id="subfuncionInput">
+</select>
+</div></div></section><div class="foto-editor edit-field-asociados"><label for="fotoInput">Actualizar fotografía</label><input id="fotoInput" type="file" accept="image/jpeg,image/png"></div>
+<p id="estadoGeneral" role="status" class="estado-operacion"></p>
+<div class="action-buttons">
+<button id="editButton" type="button">Editar información</button>
+<button id="btnGuardarAsociados" type="submit" hidden>Guardar</button>
+<button id="restaurarValAsociadosBtn" type="button" class="boton-secundario" hidden>Cancelar</button>
+<button id="credencialButton" type="button" class="boton-secundario">Generar credencial</button>
+</div></form>
+<div class="zona-eliminar"><button id="eliminarAsociadoBtn" type="button" class="laEliminacion">Eliminar asociado</button></div>
+</section>
+<section id="panelCapacitaciones" role="tabpanel" aria-labelledby="tabCapacitaciones" hidden>
+<div id="capConsulta"></div>
+<form id="formCapacitaciones" hidden novalidate><p class="section-help">Selecciona los cursos realizados e indica el año de cada uno. Plegar una disciplina conserva sus selecciones.</p><div id="capEditor"></div></form>
+<p id="estadoCapacitaciones" role="status" class="estado-operacion"></p>
+<div class="action-buttons"><button id="editarCapacitaciones" type="button">Editar capacitaciones</button>
+<button id="guardarCapacitaciones" type="submit" form="formCapacitaciones" hidden>Guardar</button>
+<button id="cancelarCapacitaciones" type="button" class="boton-secundario" hidden>Cancelar</button></div>
+</section></section>
+<dialog id="modalCambios" aria-labelledby="modalTitulo" aria-describedby="modalDescripcion">
+<h3 id="modalTitulo">Tienes cambios sin guardar</h3><p id="modalDescripcion"></p>
+<div class="modal-acciones"><button id="seguirEditando" type="button" autofocus>Seguir editando</button><button id="descartarCambios" type="button" class="boton-secundario">Descartar cambios y continuar</button></div>
+</dialog></div>

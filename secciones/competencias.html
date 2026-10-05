@@ -1,0 +1,58 @@
+<div id="divCompetencias" class="content">
+    <h2>Generar una competencia</h2>
+    <label for="competenciasSelect">Selección de competencias:</label>
+    <select id="competenciasSelect">
+    </select>
+
+    
+    <div id="competenciasDetails" style="display: none;">
+      <h3 id="fichaCompetencia">Competencias</h3>
+
+      <div>
+        <label for="competenciaImg">Cartel (foto de la competencia):</label>        
+        <input class="edit-field-evento" id="fotoCompetenciaInput" type="file" accept="image/jpeg,image/png">
+        <div class="laPreviewComEvent"  id="previewCompetencia"></div>
+      </div>
+
+      <label for="competenciaName">Nombre de la competencia:</label>
+      <input type="text" id="competenciaName" name="competenciaName" required>
+
+      <label for="competenciaLugar">Lugar de la competencia:</label>
+      <input type="text" id="competenciaLugar" name="competenciaLugar" required>
+
+      <label for="competenciStart">Fecha de inicio:</label>
+      <input type="date" id="competenciStart" name="competenciStart" required>
+
+      <label for="competenciaRama">Rama:</label>
+      <input type="text" id="competenciaRama" name="competenciaRama" required>
+
+      <label for="competenciaCategoria">Categoría:</label>
+      <input type="text" id="competenciaCategoria" name="competenciaCategoria" required>
+
+      <label for="competenciaSubcategoria">Subcategoría:</label>
+      <input type="text" id="competenciaSubcategoria" name="competenciaSubcategoria" required>
+
+      <label for="competenciaCosto">Costo:</label>
+      <input type="text" id="competenciaCosto" name="competenciaCosto" required>
+
+      <label for="competenciaDDeposito">Datos para depositar:</label>
+      <input type="text" id="competenciaDDeposito" name="competenciaDDeposito" required>
+
+      <label for="competenciaCelular">Celular:</label>      
+      <input type="text" id="competenciaCelular" name="competenciaCelular"
+        placeholder="Teléfono a 10 dígitos" pattern="\d{10}" maxlength="10"
+        title="Debe contener exactamente 10 dígitos numéricos" required>
+
+
+      <label for="competenciaCorreo">Correo:</label>
+      <input type="text" id="competenciaCorreo" name="competenciaCorreo" required>
+
+      <label for="competenciaWeb">Página web:</label>
+      <input type="text" id="competenciaWeb" name="competenciaWeb" required>
+
+      <div class="action-buttons">
+        <button class="btnClic" id="salvarCompetencia">Guardar</button>
+        <button class="btnClic laEliminacion" id="eliminarCompetencia" style="display: none;">Eiminar</button>
+      </div>
+    </div>
+  </div>
