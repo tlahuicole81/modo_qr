@@ -1,5 +1,5 @@
 "use strict";
-// Contrato de capacitaciones y vigencia: ver LEEME.md del paquete.
+
 const $aso = id => document.getElementById(id);
 let asociadoActual = null;
 let pestañaAsociado = 'general';
