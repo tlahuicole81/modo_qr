@@ -259,12 +259,13 @@ async function generarCredencialAsociado() {
   });
 }
 
-const CATALOGO_CAPACITACIONES = [{"id": "senderismo", "nombre": "Senderismo", "grupo": "General", "opciones": [{"id": "basico", "nombre": "Básico"}, {"id": "intermedio", "nombre": "Intermedio"}, {"id": "avanzado", "nombre": "Avanzado"}, {"id": "monitor", "nombre": "Monitor"}, {"id": "instructor_de_asociacion", "nombre": "Instructor de Asociación"}, {"id": "instructor_certificado_uiaa", "nombre": "Instructor Certificado UIAA"}, {"id": "lider_internacional_de_montana_iml_uimla", "nombre": "Líder Internacional de Montaña \"IML\" UIMLA"}]}, {"id": "orientacion", "nombre": "Orientación", "grupo": "General", "opciones": [{"id": "basico", "nombre": "Básico"}, {"id": "intermedio", "nombre": "Intermedio"}, {"id": "avanzado", "nombre": "Avanzado"}, {"id": "monitor", "nombre": "Monitor"}, {"id": "instructor_de_asociacion", "nombre": "Instructor de Asociación"}]}, {"id": "escalada", "nombre": "Escalada", "grupo": "General", "opciones": [{"id": "nivel_i", "nombre": "Nivel I"}, {"id": "nivel_ii", "nombre": "Nivel II"}, {"id": "nivel_iii", "nombre": "Nivel III"}, {"id": "nivel_iv", "nombre": "Nivel IV"}, {"id": "monitor", "nombre": "Monitor"}, {"id": "instructor_de_asociacion", "nombre": "Instructor de Asociación"}, {"id": "instructor_certificado_uiaa", "nombre": "Instructor Certificado UIAA"}]}, {"id": "alta_montana", "nombre": "Alta Montaña", "grupo": "General", "opciones": [{"id": "nivel_i", "nombre": "Nivel I"}, {"id": "nivel_ii", "nombre": "Nivel II"}, {"id": "nivel_iii", "nombre": "Nivel III"}, {"id": "monitor", "nombre": "Monitor"}, {"id": "instructor_de_asociacion", "nombre": "Instructor de Asociación"}, {"id": "instructor_certificado_uiaa", "nombre": "Instructor Certificado UIAA"}]}, {"id": "barranquismo", "nombre": "Barranquismo", "grupo": "General", "opciones": [{"id": "basico", "nombre": "Básico"}, {"id": "intermedio", "nombre": "Intermedio"}, {"id": "avanzado", "nombre": "Avanzado"}, {"id": "monitor", "nombre": "Monitor"}, {"id": "instructor_de_asociacion", "nombre": "Instructor de Asociación"}, {"id": "instructor_certificado_uiaa", "nombre": "Instructor Certificado UIAA"}]}, {"id": "escalada_en_hielo", "nombre": "Escalada en Hielo", "grupo": "General", "opciones": [{"id": "basico", "nombre": "Básico"}, {"id": "intermedio", "nombre": "Intermedio"}, {"id": "avanzado", "nombre": "Avanzado"}, {"id": "monitor", "nombre": "Monitor"}, {"id": "instructor_de_asociacion", "nombre": "Instructor de Asociación"}]}, {"id": "primeros_auxilios", "nombre": "Primeros Auxilios", "grupo": "General", "opciones": [{"id": "basico", "nombre": "Básico"}, {"id": "wfa", "nombre": "WFA"}, {"id": "wfr", "nombre": "WFR"}, {"id": "autorescate", "nombre": "Autorescate"}]}, {"id": "exploracion_unam", "nombre": "Exploración UNAM", "grupo": "UNAM", "opciones": [{"id": "alumno", "nombre": "Alumno"}, {"id": "ayudante", "nombre": "Ayudante"}, {"id": "monitor", "nombre": "Monitor"}, {"id": "instructor", "nombre": "Instructor"}]}, {"id": "escalada_unam", "nombre": "Escalada UNAM", "grupo": "UNAM", "opciones": [{"id": "alumno", "nombre": "Alumno"}, {"id": "ayudante", "nombre": "Ayudante"}, {"id": "monitor", "nombre": "Monitor"}, {"id": "instructor", "nombre": "Instructor"}]}, {"id": "canonismo_unam", "nombre": "Cañonismo UNAM", "grupo": "UNAM", "opciones": [{"id": "alumno", "nombre": "Alumno"}, {"id": "ayudante", "nombre": "Ayudante"}, {"id": "monitor", "nombre": "Monitor"}, {"id": "instructor", "nombre": "Instructor"}]}, {"id": "espeleologia_unam", "nombre": "Espeleología UNAM", "grupo": "UNAM", "opciones": [{"id": "alumno", "nombre": "Alumno"}, {"id": "ayudante", "nombre": "Ayudante"}, {"id": "monitor", "nombre": "Monitor"}, {"id": "instructor", "nombre": "Instructor"}]}, {"id": "alta_montana_unam", "nombre": "Alta Montaña UNAM", "grupo": "UNAM", "opciones": [{"id": "alumno", "nombre": "Alumno"}, {"id": "ayudante", "nombre": "Ayudante"}, {"id": "monitor", "nombre": "Monitor"}, {"id": "instructor", "nombre": "Instructor"}]}, {"id": "cicloexploracion_unam", "nombre": "Cicloexploración UNAM", "grupo": "UNAM", "opciones": [{"id": "alumno", "nombre": "Alumno"}, {"id": "ayudante", "nombre": "Ayudante"}, {"id": "monitor", "nombre": "Monitor"}, {"id": "instructor", "nombre": "Instructor"}]}, {"id": "kayac_de_mar_unam", "nombre": "Kayac de mar UNAM", "grupo": "UNAM", "opciones": [{"id": "alumno", "nombre": "Alumno"}, {"id": "ayudante", "nombre": "Ayudante"}, {"id": "monitor", "nombre": "Monitor"}, {"id": "instructor", "nombre": "Instructor"}]}];
+const ANIO_CAPACITACION_PREDETERMINADO = 2020;
+const CATALOGO_CAPACITACIONES = [{"id": "senderismo", "nombre": "Senderismo", "grupo": "General", "opciones": [{"id": "basico", "nombre": "Básico"}, {"id": "intermedio", "nombre": "Intermedio"}, {"id": "avanzado", "nombre": "Avanzado"}, {"id": "monitor", "nombre": "Monitor"}, {"id": "instructor_de_asociacion", "nombre": "Instructor de Asociación"}, {"id": "instructor_certificado_uiaa", "nombre": "Instructor Certificado UIAA"}, {"id": "lider_internacional_de_montana_iml_uimla", "nombre": "Líder Internacional de Montaña \"IML\" UIMLA"}]}, {"id": "orientacion", "nombre": "Orientación", "grupo": "General", "opciones": [{"id": "basico", "nombre": "Básico"}, {"id": "intermedio", "nombre": "Intermedio"}, {"id": "avanzado", "nombre": "Avanzado"}, {"id": "monitor", "nombre": "Monitor"}, {"id": "instructor_de_asociacion", "nombre": "Instructor de Asociación"}]}, {"id": "escalada", "nombre": "Escalada", "grupo": "General", "opciones": [{"id": "nivel_i", "nombre": "Nivel I"}, {"id": "nivel_ii", "nombre": "Nivel II"}, {"id": "nivel_iii", "nombre": "Nivel III"}, {"id": "nivel_iv", "nombre": "Nivel IV"}, {"id": "monitor", "nombre": "Monitor"}, {"id": "instructor_de_asociacion", "nombre": "Instructor de Asociación"}, {"id": "instructor_certificado_uiaa", "nombre": "Instructor Certificado UIAA"}]}, {"id": "alta_montana", "nombre": "Alta Montaña", "grupo": "General", "opciones": [{"id": "nivel_i", "nombre": "Nivel I"}, {"id": "nivel_ii", "nombre": "Nivel II"}, {"id": "nivel_iii", "nombre": "Nivel III"}, {"id": "monitor", "nombre": "Monitor"}, {"id": "instructor_de_asociacion", "nombre": "Instructor de Asociación"}, {"id": "instructor_certificado_uiaa", "nombre": "Instructor Certificado UIAA"}]}, {"id": "barranquismo", "nombre": "Barranquismo", "grupo": "General", "opciones": [{"id": "basico", "nombre": "Básico"}, {"id": "intermedio", "nombre": "Intermedio"}, {"id": "avanzado", "nombre": "Avanzado"}, {"id": "monitor", "nombre": "Monitor"}, {"id": "instructor_de_asociacion", "nombre": "Instructor de Asociación"}, {"id": "instructor_certificado_uiaa", "nombre": "Instructor Certificado UIAA"}]}, {"id": "escalada_en_hielo", "nombre": "Escalada en Hielo", "grupo": "General", "opciones": [{"id": "basico", "nombre": "Básico"}, {"id": "intermedio", "nombre": "Intermedio"}, {"id": "avanzado", "nombre": "Avanzado"}, {"id": "monitor", "nombre": "Monitor"}, {"id": "instructor_de_asociacion", "nombre": "Instructor de Asociación"}]}, {"id": "primeros_auxilios", "nombre": "Primeros Auxilios", "grupo": "General", "opciones": [{"id": "basico", "nombre": "Básico"}, {"id": "wfa", "nombre": "WFA"}, {"id": "wfr", "nombre": "WFR"}, {"id": "autorescate", "nombre": "Autorescate"}]}, {"id": "curso_basico_unam", "nombre": "Curso básico UNAM", "grupo": "UNAM", "independiente": true, "opciones": [{"id": "curso", "nombre": "Curso básico UNAM"}]}, {"id": "exploracion_unam", "nombre": "Exploración UNAM", "grupo": "UNAM", "opciones": [{"id": "alumno", "nombre": "Alumno"}, {"id": "ayudante", "nombre": "Ayudante"}, {"id": "monitor", "nombre": "Monitor"}, {"id": "instructor", "nombre": "Instructor"}]}, {"id": "escalada_unam", "nombre": "Escalada UNAM", "grupo": "UNAM", "opciones": [{"id": "alumno", "nombre": "Alumno"}, {"id": "ayudante", "nombre": "Ayudante"}, {"id": "monitor", "nombre": "Monitor"}, {"id": "instructor", "nombre": "Instructor"}]}, {"id": "canonismo_unam", "nombre": "Cañonismo UNAM", "grupo": "UNAM", "opciones": [{"id": "alumno", "nombre": "Alumno"}, {"id": "ayudante", "nombre": "Ayudante"}, {"id": "monitor", "nombre": "Monitor"}, {"id": "instructor", "nombre": "Instructor"}]}, {"id": "espeleologia_unam", "nombre": "Espeleología UNAM", "grupo": "UNAM", "opciones": [{"id": "alumno", "nombre": "Alumno"}, {"id": "ayudante", "nombre": "Ayudante"}, {"id": "monitor", "nombre": "Monitor"}, {"id": "instructor", "nombre": "Instructor"}]}, {"id": "alta_montana_unam", "nombre": "Alta Montaña UNAM", "grupo": "UNAM", "opciones": [{"id": "alumno", "nombre": "Alumno"}, {"id": "ayudante", "nombre": "Ayudante"}, {"id": "monitor", "nombre": "Monitor"}, {"id": "instructor", "nombre": "Instructor"}]}, {"id": "cicloexploracion_unam", "nombre": "Cicloexploración UNAM", "grupo": "UNAM", "opciones": [{"id": "alumno", "nombre": "Alumno"}, {"id": "ayudante", "nombre": "Ayudante"}, {"id": "monitor", "nombre": "Monitor"}, {"id": "instructor", "nombre": "Instructor"}]}, {"id": "kayac_de_mar_unam", "nombre": "Kayac de mar UNAM", "grupo": "UNAM", "opciones": [{"id": "alumno", "nombre": "Alumno"}, {"id": "ayudante", "nombre": "Ayudante"}, {"id": "monitor", "nombre": "Monitor"}, {"id": "instructor", "nombre": "Instructor"}]}];
 function interpretarCapacitaciones(valor) {
   if (valor === undefined || valor === null || valor === '') return {version:1,cursos:[]};
   const dato = typeof valor === 'string' ? JSON.parse(valor) : valor;
   if (dato.version !== 1 || !Array.isArray(dato.cursos)) throw new Error('Formato de capacitaciones no reconocido. Revisa la integración con GAS antes de editar.');
-  const claves = new Set(); let primeros = 0;
+  const claves = new Set();
   for (const c of dato.cursos) {
     const disciplina = CATALOGO_CAPACITACIONES.find(d => d.id === c.disciplina);
     const clave = c.disciplina + '/' + c.nivel;
@@ -272,9 +273,7 @@ function interpretarCapacitaciones(valor) {
         !Number.isInteger(c.anio) || c.anio < 1900 || c.anio > new Date().getFullYear())
       throw new Error('Hay capacitaciones con opciones o años no válidos. Revisa los datos de GAS antes de editar.');
     claves.add(clave);
-    if (c.disciplina === 'primeros_auxilios' && c.nivel !== 'autorescate') primeros++;
   }
-  if (primeros > 1) throw new Error('Primeros Auxilios contiene más de un nivel. Corrige el registro en GAS antes de editar.');
   return JSON.parse(JSON.stringify(dato));
 }
 function leerCapacitaciones() {
@@ -295,7 +294,7 @@ function sincronizarAniosCapacitaciones() {
 function construirEditorCapacitaciones() {
   const cont = $aso('capEditor'); cont.replaceChildren();
   for (const grupo of ['General','UNAM']) {
-    const h = document.createElement('h4'); h.textContent = grupo === 'UNAM' ? 'Curso básico UNAM' : 'Disciplinas generales'; cont.append(h);
+    const h = document.createElement('h4'); h.textContent = grupo === 'UNAM' ? 'Formación UNAM' : 'Disciplinas generales'; cont.append(h);
     for (const d of CATALOGO_CAPACITACIONES.filter(d => d.grupo === grupo)) {
       const bloque = document.createElement('section'); bloque.className = 'cap-disciplina';
       const principal = document.createElement('label'); principal.className = 'cap-principal';
@@ -308,23 +307,23 @@ function construirEditorCapacitaciones() {
         const fila = document.createElement('div'); fila.className = 'cap-curso';
         const id = `cap_${d.id}_${o.id}`, lab = document.createElement('label');
         const check = document.createElement('input');
-        check.type = d.id === 'primeros_auxilios' && o.id !== 'autorescate' ? 'radio' : 'checkbox';
-        check.name = check.type === 'radio' ? 'nivelPrimerosAuxilios' : id; check.id = id;
+        check.type = 'checkbox';
+        check.name = id; check.id = id;
         const registro = capDatos.cursos.find(c => c.disciplina === d.id && c.nivel === o.id);
         check.checked = Boolean(registro); lab.append(check,document.createTextNode(o.nombre));
         const yearLab = document.createElement('label'); yearLab.className = 'cap-anio'; yearLab.textContent = 'Año del curso';
-        const year = document.createElement('input'); year.type = 'number'; year.id = id + '_anio'; year.min = '1900'; year.max = String(new Date().getFullYear()); year.step = '1'; year.inputMode = 'numeric'; year.value = registro?.anio || '';
+        const year = document.createElement('input'); year.type = 'number'; year.id = id + '_anio'; year.min = '1900'; year.max = String(new Date().getFullYear()); year.step = '1'; year.inputMode = 'numeric'; year.value = registro?.anio ?? ANIO_CAPACITACION_PREDETERMINADO;
         year.setAttribute('aria-label',`Año de ${d.nombre}, ${o.nombre}`);
         yearLab.append(year); fila.append(lab,yearLab); opciones.append(fila);
         check.addEventListener('change',sincronizarAniosCapacitaciones);
       }
-      if (d.id === 'primeros_auxilios') {
-        const quitar = document.createElement('button'); quitar.type = 'button'; quitar.className = 'boton-secundario'; quitar.textContent = 'Quitar nivel de primeros auxilios';
-        quitar.onclick = () => { opciones.querySelectorAll('input[type=radio]').forEach(e => {e.checked=false;}); sincronizarAniosCapacitaciones(); }; opciones.append(quitar);
-      }
       const expandir = () => { opciones.hidden = !activar.checked; activar.setAttribute('aria-expanded',String(activar.checked)); };
       activar.checked = capDatos.cursos.some(c => c.disciplina === d.id); activar.addEventListener('change',expandir); expandir();
-      bloque.append(principal,opciones); cont.append(bloque);
+      if (d.independiente) {
+        // Una capacitación directa, sin checkbox adicional de despliegue.
+        opciones.hidden = false; aviso.remove(); bloque.append(opciones);
+      } else bloque.append(principal,opciones);
+      cont.append(bloque);
     }
   }
   sincronizarAniosCapacitaciones(); capInicial = JSON.stringify(leerCapacitaciones());
@@ -340,7 +339,7 @@ function cargarCapacitaciones() {
     for (const grupo of ['General','UNAM']) {
       const disciplinas = CATALOGO_CAPACITACIONES.filter(d => d.grupo === grupo && capDatos.cursos.some(c => c.disciplina === d.id));
       if (!disciplinas.length) continue;
-      const h = document.createElement('h4'); h.textContent = grupo === 'UNAM' ? 'Curso básico UNAM' : 'Disciplinas generales'; cont.append(h);
+      const h = document.createElement('h4'); h.textContent = grupo === 'UNAM' ? 'Formación UNAM' : 'Disciplinas generales'; cont.append(h);
       for (const d of disciplinas) {
         const bloque = document.createElement('section'); bloque.className = 'cap-resumen';
         const title = document.createElement('h5'); title.textContent = d.nombre; bloque.append(title);
@@ -362,7 +361,7 @@ async function guardarCapacitacionesAsociado(e) {
   for (const input of $aso('capEditor').querySelectorAll('input[type=number]:enabled')) {
     if (!input.checkValidity()) {
       const panel = input.closest('.cap-opciones'); panel.hidden = false;
-      const toggle = panel.parentElement.querySelector('.cap-principal input'); toggle.checked = true; toggle.setAttribute('aria-expanded','true');
+      const toggle = panel.parentElement.querySelector('.cap-principal input'); if (toggle) { toggle.checked = true; toggle.setAttribute('aria-expanded','true'); }
       input.reportValidity(); return;
     }
   }
