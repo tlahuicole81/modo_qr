@@ -1,0 +1,38 @@
+/* Estilos exclusivos de Eventos; conserva los estilos generales del portal. */
+#eventos .evento-cabecera { margin-bottom:24px; }
+#eventos .evento-cabecera h2 { margin-bottom:10px; }
+#eventos .evento-cabecera > p:last-child,
+#eventos .evento-ayuda { color:var(--secundario,#54677b); font-size:.9rem; line-height:1.55; }
+#eventos .evento-selector { padding:18px 20px; border:1px solid var(--borde,#c5d2df); background:var(--azul-suave,#edf4fc); border-radius:12px; }
+#eventos .evento-selector label { margin-top:0; }
+#eventos .evento-selector select { margin-bottom:0; }
+#eventos #fichaEvento { margin:28px 0 18px; }
+#eventos .evento-distribucion { display:grid; grid-template-columns:minmax(220px, .8fr) minmax(0, 2fr); gap:24px; align-items:start; }
+#eventos .evento-cartel,
+#eventos .evento-grupo { min-width:0; padding:22px; border:1px solid #dbe4ee; border-radius:14px; background:#fff; }
+#eventos h4 { margin:0 0 7px; color:var(--texto,#182c42); font-size:1rem; }
+#eventos .evento-datos { display:grid; gap:20px; min-width:0; }
+#eventos .evento-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 18px; margin-top:8px; }
+#eventos .evento-ancho { grid-column:1 / -1; }
+#eventos .evento-campo { min-width:0; }
+#eventos .evento-campo label { font-weight:500; color:#465a70; }
+#eventos .evento-campo input,
+#eventos .evento-campo textarea { margin-bottom:4px; }
+#eventos #previewCompEvento { width:100%; min-height:200px; margin:18px 0; border:1px dashed #bbcbdc; border-radius:10px; overflow:hidden; background:#f3f7fc; }
+#eventos #previewCompEvento:empty { display:grid; place-items:center; }
+#eventos #previewCompEvento:empty::before { content:'Vista previa del cartel'; color:#61748a; font-size:.88rem; padding:20px; }
+#eventos #previewCompEvento iframe { display:block; width:100%; height:360px; border:0; }
+#eventos #previewCompEvento img { display:block; width:100%; height:auto; object-fit:contain; }
+#eventos #fotoEventoInput { font-size:.85rem; padding:10px; }
+#eventos .evento-acciones { display:flex; flex-wrap:wrap; gap:12px; padding-top:22px; margin-top:24px; border-top:1px solid #dbe4ee; }
+#eventos #eliminarEvento { color:#a62332; border:1px solid #e4b4bb; background:#fff5f6; }
+#eventos #eliminarEvento:hover { background:#ffe4e8; }
+@media (max-width:800px) {
+  #eventos .evento-distribucion { grid-template-columns:1fr; }
+  #eventos .evento-cartel { max-width:100%; }
+}
+@media (max-width:520px) {
+  #eventos .evento-grid { grid-template-columns:1fr; }
+  #eventos .evento-grupo, #eventos .evento-cartel { padding:16px; }
+  #eventos .evento-acciones button { flex:1 1 100%; }
+}

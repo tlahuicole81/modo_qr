@@ -1,0 +1,46 @@
+/* Estilos exclusivos de Competencias; conserva los estilos generales del portal. */
+#divCompetencias .comp-cabecera { margin-bottom:24px; }
+#divCompetencias .comp-cabecera h2 { margin-bottom:10px; }
+#divCompetencias .comp-cabecera > p:last-child,
+#divCompetencias .comp-ayuda { color:var(--secundario,#54677b); font-size:.9rem; line-height:1.55; }
+#divCompetencias .comp-selector { padding:18px 20px; border:1px solid var(--borde,#c5d2df); background:var(--azul-suave,#edf4fc); border-radius:12px; }
+#divCompetencias .comp-selector label { margin-top:0; }
+#divCompetencias .comp-selector select { margin-bottom:0; }
+#divCompetencias #fichaCompetencia { margin:28px 0 18px; }
+#divCompetencias .comp-distribucion { display:grid; grid-template-columns:minmax(220px, .8fr) minmax(0, 2fr); gap:24px; align-items:start; }
+#divCompetencias .comp-cartel,
+#divCompetencias .comp-grupo { min-width:0; padding:22px; border:1px solid #dbe4ee; border-radius:14px; background:#fff; }
+#divCompetencias h4 { margin:0 0 7px; color:var(--texto,#182c42); font-size:1rem; }
+#divCompetencias .comp-datos { display:grid; gap:20px; min-width:0; }
+#divCompetencias .comp-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 18px; margin-top:8px; }
+#divCompetencias .comp-ancho { grid-column:1 / -1; }
+#divCompetencias .comp-campo { min-width:0; }
+#divCompetencias .comp-campo label { font-weight:500; color:#465a70; }
+#divCompetencias .comp-campo input,
+#divCompetencias .comp-campo textarea { margin-bottom:4px; }
+#divCompetencias #previewCompetencia { width:100%; min-height:200px; margin:18px 0; border:1px dashed #bbcbdc; border-radius:10px; overflow:hidden; background:#f3f7fc; }
+#divCompetencias #previewCompetencia:empty { display:grid; place-items:center; }
+#divCompetencias #previewCompetencia:empty::before { content:'Vista previa del cartel'; color:#61748a; font-size:.88rem; padding:20px; }
+#divCompetencias #previewCompetencia iframe { display:block; width:100%; height:360px; border:0; }
+#divCompetencias #previewCompetencia img { display:block; width:100%; height:auto; object-fit:contain; }
+#divCompetencias #fotoCompetenciaInput { font-size:.85rem; padding:10px; }
+#divCompetencias .comp-acciones { display:flex; flex-wrap:wrap; gap:12px; padding-top:22px; margin-top:24px; border-top:1px solid #dbe4ee; }
+#divCompetencias #eliminarCompetencia { color:#a62332; border:1px solid #e4b4bb; background:#fff5f6; }
+#divCompetencias #eliminarCompetencia:hover { background:#ffe4e8; }
+@media (max-width:800px) {
+  #divCompetencias .comp-distribucion { grid-template-columns:1fr; }
+  #divCompetencias .comp-cartel { max-width:100%; }
+}
+@media (max-width:520px) {
+  #divCompetencias .comp-grid { grid-template-columns:1fr; }
+  #divCompetencias .comp-grupo, #divCompetencias .comp-cartel { padding:16px; }
+  #divCompetencias .comp-acciones button { flex:1 1 100%; }
+}
+
+#divCompetencias .comp-opciones { min-width:0; margin:20px 0 0; padding:0; border:0; }
+#divCompetencias .comp-opciones legend { padding:0; margin-bottom:10px; font-weight:600; font-size:.9rem; color:#465a70; }
+#divCompetencias .comp-checks { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+#divCompetencias .comp-checks label { display:flex; align-items:center; gap:10px; margin:0; padding:11px 12px; min-width:0; border:1px solid #dbe4ee; border-radius:9px; font-weight:400; background:#f8fafc; cursor:pointer; overflow-wrap:anywhere; }
+#divCompetencias .comp-checks label:has(input:checked) { background:#edf4fc; border-color:#1459a6; color:#0d4381; }
+#divCompetencias .comp-checks input { flex:0 0 auto; }
+@media(max-width:520px) { #divCompetencias .comp-checks { grid-template-columns:1fr; } }
