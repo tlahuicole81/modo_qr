@@ -1,4 +1,4 @@
-const URL_ACTIVA = "https://script.google.com/macros/s/AKfycbx0s2A12QDieNBwrfIgY1yiM8mXJmOINvHPCEhD4Glzm6_O7UPIqwJLHPL2Yy7nVb4XMw/exec"; //accesoVer09h
+const URL_ACTIVA = "https://script.google.com/macros/s/AKfycbyCoTT-8QrS9tssANj-1arX5CG0X6GltsRGYu8NIjm_tEcXrrw_sZptRCknEVLvNjjDIQ/exec"; //accesoVer09h
 
 const URL_ACTIVA0 = 'https://script.google.com/macros/s/AKfycbxxVM3QWye47UB2Hfrzh_Hu0M8yfJMulHxqxJnHgu_eI9-lS6xtWkQ9plQdiajbgPWrdQ/exec'; // form01n
 
@@ -448,3 +448,149 @@ function mostrarToast(mensaje, duracion = 3000) {
     toast.className = "toast"; // quita la clase .show
   }, duracion);
 }
+
+
+/* Identificadores del catálogo */
+const CATALOGO_CAPACITACIONES = [
+    {
+        "id": "senderismo", "nombre": "Senderismo", "grupo": "General", "opciones":
+            [
+                { "id": "basico", "nombre": "Básico" },
+                { "id": "intermedio", "nombre": "Intermedio" },
+                { "id": "avanzado", "nombre": "Avanzado" },
+                { "id": "monitor", "nombre": "Monitor" },
+                { "id": "instructor_de_asociacion", "nombre": "Instructor de Asociación" },
+                { "id": "instructor_certificado_uiaa", "nombre": "Instructor Certificado UIAA" },
+                { "id": "lider_internacional_de_montana_iml_uimla", "nombre": "Líder Internacional de Montaña \"IML\" UIMLA" }
+            ]
+    },
+    {
+        "id": "orientacion", "nombre": "Orientación", "grupo": "General", "opciones":
+            [
+                { "id": "basico", "nombre": "Básico" },
+                { "id": "intermedio", "nombre": "Intermedio" },
+                { "id": "avanzado", "nombre": "Avanzado" },
+                { "id": "monitor", "nombre": "Monitor" },
+                { "id": "instructor_de_asociacion", "nombre": "Instructor de Asociación" }
+            ]
+    },
+    {
+        "id": "escalada", "nombre": "Escalada", "grupo": "General", "opciones":
+            [
+                { "id": "nivel_i", "nombre": "Nivel I" },
+                { "id": "nivel_ii", "nombre": "Nivel II" },
+                { "id": "nivel_iii", "nombre": "Nivel III" },
+                { "id": "nivel_iv", "nombre": "Nivel IV" },
+                { "id": "monitor", "nombre": "Monitor" },
+                { "id": "instructor_de_asociacion", "nombre": "Instructor de Asociación" },
+                { "id": "instructor_certificado_uiaa", "nombre": "Instructor Certificado UIAA" }
+            ]
+    },
+    {
+        "id": "alta_montana", "nombre": "Alta Montaña", "grupo": "General", "opciones":
+            [
+                { "id": "nivel_i", "nombre": "Nivel I" },
+                { "id": "nivel_ii", "nombre": "Nivel II" },
+                { "id": "nivel_iii", "nombre": "Nivel III" },
+                { "id": "monitor", "nombre": "Monitor" },
+                { "id": "instructor_de_asociacion", "nombre": "Instructor de Asociación" },
+                { "id": "instructor_certificado_uiaa", "nombre": "Instructor Certificado UIAA" }
+            ]
+    },
+    {
+        "id": "barranquismo", "nombre": "Barranquismo", "grupo": "General", "opciones":
+            [
+                { "id": "basico", "nombre": "Básico" },
+                { "id": "intermedio", "nombre": "Intermedio" },
+                { "id": "avanzado", "nombre": "Avanzado" },
+                { "id": "monitor", "nombre": "Monitor" },
+                { "id": "instructor_de_asociacion", "nombre": "Instructor de Asociación" },
+                { "id": "instructor_certificado_uiaa", "nombre": "Instructor Certificado UIAA" }
+            ]
+    },
+    {
+        "id": "escalada_en_hielo", "nombre": "Escalada en Hielo", "grupo": "General", "opciones":
+            [
+                { "id": "basico", "nombre": "Básico" },
+                { "id": "intermedio", "nombre": "Intermedio" },
+                { "id": "avanzado", "nombre": "Avanzado" },
+                { "id": "monitor", "nombre": "Monitor" },
+                { "id": "instructor_de_asociacion", "nombre": "Instructor de Asociación" }
+            ]
+    },
+    {
+        "id": "primeros_auxilios", "nombre": "Primeros Auxilios", "grupo": "General", "opciones":
+            [
+                { "id": "basico", "nombre": "Básico" },
+                { "id": "wfa", "nombre": "WFA" }, { "id": "wfr", "nombre": "WFR" },
+                { "id": "autorescate", "nombre": "Autorescate" }
+            ]
+    },
+    {
+        "id": "curso_basico_unam", "nombre": "Curso básico UNAM", "grupo": "UNAM", "independiente": true, "opciones":
+            [
+                { "id": "curso", "nombre": "Curso básico UNAM" }
+            ]
+    },
+    {
+        "id": "exploracion_unam", "nombre": "Exploración UNAM", "grupo": "UNAM", "opciones":
+            [
+                { "id": "alumno", "nombre": "Alumno" },
+                { "id": "ayudante", "nombre": "Ayudante" }, { "id": "monitor", "nombre": "Monitor" },
+                { "id": "instructor", "nombre": "Instructor" }
+            ]
+    },
+    {
+        "id": "escalada_unam", "nombre": "Escalada UNAM", "grupo": "UNAM", "opciones":
+            [
+                { "id": "alumno", "nombre": "Alumno" },
+                { "id": "ayudante", "nombre": "Ayudante" },
+                { "id": "monitor", "nombre": "Monitor" },
+                { "id": "instructor", "nombre": "Instructor" }
+            ]
+    },
+    {
+        "id": "canonismo_unam", "nombre": "Cañonismo UNAM", "grupo": "UNAM", "opciones":
+            [
+                { "id": "alumno", "nombre": "Alumno" },
+                { "id": "ayudante", "nombre": "Ayudante" },
+                { "id": "monitor", "nombre": "Monitor" },
+                { "id": "instructor", "nombre": "Instructor" }
+            ]
+    },
+    {
+        "id": "espeleologia_unam", "nombre": "Espeleología UNAM", "grupo": "UNAM", "opciones":
+            [
+                { "id": "alumno", "nombre": "Alumno" },
+                { "id": "ayudante", "nombre": "Ayudante" },
+                { "id": "monitor", "nombre": "Monitor" },
+                { "id": "instructor", "nombre": "Instructor" }
+            ]
+    },
+    {
+        "id": "alta_montana_unam", "nombre": "Alta Montaña UNAM", "grupo": "UNAM", "opciones":
+            [
+                { "id": "alumno", "nombre": "Alumno" },
+                { "id": "ayudante", "nombre": "Ayudante" },
+                { "id": "monitor", "nombre": "Monitor" },
+                { "id": "instructor", "nombre": "Instructor" }
+            ]
+    },
+    {
+        "id": "cicloexploracion_unam", "nombre": "Cicloexploración UNAM", "grupo": "UNAM", "opciones":
+            [
+                { "id": "alumno", "nombre": "Alumno" },
+                { "id": "ayudante", "nombre": "Ayudante" },
+                { "id": "monitor", "nombre": "Monitor" },
+                { "id": "instructor", "nombre": "Instructor" }
+            ]
+    },
+    {
+        "id": "kayac_de_mar_unam", "nombre": "Kayac de mar UNAM", "grupo": "UNAM", "opciones":
+            [
+                { "id": "alumno", "nombre": "Alumno" },
+                { "id": "ayudante", "nombre": "Ayudante" },
+                { "id": "monitor", "nombre": "Monitor" },
+                { "id": "instructor", "nombre": "Instructor" }
+            ]
+    }];
