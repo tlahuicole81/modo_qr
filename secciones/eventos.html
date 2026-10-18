@@ -1,58 +1,70 @@
+<link rel="stylesheet" href="eventos.css">
 <div id="eventos" class="content">
-    <h2>Generar un evento</h2>
-    <label for="eventosSelect">Selección de eventos:</label>
-    <select id="eventosSelect">
-
-    </select>
-    
-    <div id="eventosDetails" style="display: none;">
-      <h3 id="fichaEvento">Eventos</h3>
-
-      <div>
-        <label for="eventPoster">Cartel (foto del evento):</label>        
-        <input class="edit-field-evento" id="fotoEventoInput" type="file" accept="image/jpeg,image/png">
+  <header class="evento-cabecera">
+    <p class="eyebrow">GESTIÓN DE EVENTOS</p>
+    <h2>Eventos</h2>
+    <p>Selecciona un evento para consultar sus datos o elige «Nuevo evento» para registrarlo.</p>
+  </header>
+  <div class="evento-selector"><label for="eventosSelect">Selección de eventos</label><select
+      id="eventosSelect"></select></div>
+  <div id="eventosDetails" style="display: none;">
+    <h3 id="fichaEvento">Ficha del evento</h3>
+    <div class="evento-distribucion">
+      <section class="evento-cartel">
+        <h4>Cartel del evento</h4>
+        <p class="evento-ayuda">Imagen de presentación</p>
         <div class="laPreviewComEvent" id="previewCompEvento"></div>
-      </div>
-
-      <label for="eventName">Nombre del evento:</label>
-      <input class="edit-field-evento" type="text" id="eventName" name="eventName" required>
-
-      <label for="eventStart">Fecha de inicio:</label>
-      <input class="edit-field-evento" type="date" id="eventStart" name="eventStart" required>
-
-      <label for="eventEnd">Fecha de finalización:</label>
-      <input class="edit-field-evento" type="date" id="eventEnd" name="eventEnd" required>
-
-      <label for="eventDuration">Duración:</label>
-      <input class="edit-field-evento" type="text" id="eventDuration" name="eventDuration" required>
-
-      <label for="eventLocation">Lugar del evento:</label>
-      <input class="edit-field-evento" type="text" id="eventLocation" name="eventLocation" required>
-
-      <label for="eventFee">Cuota de recuperación:</label>
-      <input class="edit-field-evento" type="text" id="eventFee" name="eventFee" required>
-
-      <label for="registrationDeadline">Fecha límite de inscripción:</label>
-      <input class="edit-field-evento" type="date" id="registrationDeadline" name="registrationDeadline" required>
-
-      <label for="depositInfo">Datos para el depósito:</label>
-      <textarea class="edit-field-evento" id="depositInfo" name="depositInfo"></textarea>
-
-      <h3>Informes</h3>
-      <label for="contactPhone">Celular:</label>
-      <input class="edit-field-evento" type="text" id="contactPhone" name="contactPhone"
-        placeholder="Teléfono a 10 dígitos" pattern="\d{10}" maxlength="10"
-        title="Debe contener exactamente 10 dígitos numéricos" required>
-
-      <label for="contactEmail">Correo:</label>
-      <input class="edit-field-evento" type="email" id="contactEmail" name="contactEmail" required>
-
-      <label for="contactLink">Link página web:</label>
-      <input class="edit-field-evento" type="url" id="contactLink" name="contactLink" required>
-
-      <div class="action-buttons">
-        <button class="btnClic" id="salvarEvento">Guardar</button>
-        <button class="btnClic laEliminacion" id="eliminarEvento" style="display: none;">Eiminar</button>
+        <label for="fotoEventoInput">Seleccionar cartel</label><input class="edit-field-evento" id="fotoEventoInput"
+          type="file" accept="image/jpeg,image/png">
+        <p class="evento-ayuda">Formato JPG o PNG.</p>
+      </section>
+      <div class="evento-datos">
+        <section class="evento-grupo">
+          <h4>Datos del evento</h4>
+          <p class="evento-ayuda">Nombre, fechas y lugar de realización.</p>
+          <div class="evento-grid">
+            <div class="evento-campo evento-ancho"><label for="eventName">Nombre del evento:</label><input
+                class="edit-field-evento" type="text" id="eventName" name="eventName" required></div>
+            <div class="evento-campo"><label for="eventStart">Fecha de inicio:</label><input class="edit-field-evento"
+                type="date" id="eventStart" name="eventStart" required></div>
+            <div class="evento-campo"><label for="eventEnd">Fecha de finalización:</label><input
+                class="edit-field-evento" type="date" id="eventEnd" name="eventEnd" required></div>
+            <div class="evento-campo"><label for="eventDuration">Duración:</label><input class="edit-field-evento"
+                type="text" id="eventDuration" name="eventDuration" required></div>
+            <div class="evento-campo evento-ancho"><label for="eventLocation">Lugar del evento:</label><input
+                class="edit-field-evento" type="text" id="eventLocation" name="eventLocation" required></div>
+          </div>
+        </section>
+        <section class="evento-grupo">
+          <h4>Inscripción y cuota</h4>
+          <p class="evento-ayuda">Información para las personas participantes.</p>
+          <div class="evento-grid">
+            <div class="evento-campo"><label for="eventFee">Cuota de recuperación:</label><input
+                class="edit-field-evento" type="text" id="eventFee" name="eventFee" required></div>
+            <div class="evento-campo"><label for="registrationDeadline">Fecha límite de inscripción:</label><input
+                class="edit-field-evento" type="date" id="registrationDeadline" name="registrationDeadline" required>
+            </div>
+            <div class="evento-campo evento-ancho"><label for="depositInfo">Datos para el depósito:</label><textarea
+                class="edit-field-evento" id="depositInfo" name="depositInfo"></textarea></div>
+          </div>
+        </section>
+        <section class="evento-grupo">
+          <h4>Informes</h4>
+          <p class="evento-ayuda">Medios de contacto del evento.</p>
+          <div class="evento-grid">
+            <div class="evento-campo"><label for="contactPhone">Celular:</label><input class="edit-field-evento"
+                type="text" id="contactPhone" name="contactPhone" placeholder="Teléfono a 10 dígitos" pattern="\d{10}"
+                maxlength="10" title="Debe contener exactamente 10 dígitos numéricos" required></div>
+            <div class="evento-campo"><label for="contactEmail">Correo:</label><input class="edit-field-evento"
+                type="email" id="contactEmail" name="contactEmail" required></div>
+            <div class="evento-campo evento-ancho"><label for="contactLink">Link página web:</label><input
+                class="edit-field-evento" type="url" id="contactLink" name="contactLink" required></div>
+          </div>
+        </section>
       </div>
     </div>
+    <div class="action-buttons evento-acciones"><button type="button" class="btnClic"
+        id="salvarEvento">Guardar</button><button type="button" class="btnClic laEliminacion" id="eliminarEvento"
+        style="display: none;">Eliminar evento</button></div>
   </div>
+</div>
