@@ -1,58 +1,79 @@
+<link rel="stylesheet" href="competencias.css">
 <div id="divCompetencias" class="content">
-    <h2>Generar una competencia</h2>
-    <label for="competenciasSelect">Selección de competencias:</label>
-    <select id="competenciasSelect">
-    </select>
-
-    
-    <div id="competenciasDetails" style="display: none;">
-      <h3 id="fichaCompetencia">Competencias</h3>
-
-      <div>
-        <label for="competenciaImg">Cartel (foto de la competencia):</label>        
-        <input class="edit-field-evento" id="fotoCompetenciaInput" type="file" accept="image/jpeg,image/png">
-        <div class="laPreviewComEvent"  id="previewCompetencia"></div>
-      </div>
-
-      <label for="competenciaName">Nombre de la competencia:</label>
-      <input type="text" id="competenciaName" name="competenciaName" required>
-
-      <label for="competenciaLugar">Lugar de la competencia:</label>
-      <input type="text" id="competenciaLugar" name="competenciaLugar" required>
-
-      <label for="competenciStart">Fecha de inicio:</label>
-      <input type="date" id="competenciStart" name="competenciStart" required>
-
-      <label for="competenciaRama">Rama:</label>
-      <input type="text" id="competenciaRama" name="competenciaRama" required>
-
-      <label for="competenciaCategoria">Categoría:</label>
-      <input type="text" id="competenciaCategoria" name="competenciaCategoria" required>
-
-      <label for="competenciaSubcategoria">Subcategoría:</label>
-      <input type="text" id="competenciaSubcategoria" name="competenciaSubcategoria" required>
-
-      <label for="competenciaCosto">Costo:</label>
-      <input type="text" id="competenciaCosto" name="competenciaCosto" required>
-
-      <label for="competenciaDDeposito">Datos para depositar:</label>
-      <input type="text" id="competenciaDDeposito" name="competenciaDDeposito" required>
-
-      <label for="competenciaCelular">Celular:</label>      
-      <input type="text" id="competenciaCelular" name="competenciaCelular"
-        placeholder="Teléfono a 10 dígitos" pattern="\d{10}" maxlength="10"
-        title="Debe contener exactamente 10 dígitos numéricos" required>
-
-
-      <label for="competenciaCorreo">Correo:</label>
-      <input type="text" id="competenciaCorreo" name="competenciaCorreo" required>
-
-      <label for="competenciaWeb">Página web:</label>
-      <input type="text" id="competenciaWeb" name="competenciaWeb" required>
-
-      <div class="action-buttons">
-        <button class="btnClic" id="salvarCompetencia">Guardar</button>
-        <button class="btnClic laEliminacion" id="eliminarCompetencia" style="display: none;">Eiminar</button>
+  <header class="comp-cabecera">
+    <p class="eyebrow">GESTIÓN DE COMPETENCIAS</p>
+    <h2>Competencias</h2>
+    <p>Selecciona una competencia para consultar sus datos o elige «Nueva competencia» para registrarla.</p>
+  </header>
+  <div class="comp-selector"><label for="competenciasSelect">Selección de competencias</label><select
+      id="competenciasSelect"></select></div>
+  <div id="competenciasDetails" style="display:none;">
+    <h3 id="fichaCompetencia">Ficha de la competencia</h3>
+    <div class="comp-distribucion">
+      <section class="comp-cartel">
+        <h4>Cartel de la competencia</h4>
+        <p class="comp-ayuda">Imagen de presentación</p>
+        <div class="laPreviewComEvent" id="previewCompetencia"></div><label for="fotoCompetenciaInput">Seleccionar
+          cartel</label><input class="edit-field-evento" id="fotoCompetenciaInput" type="file"
+          accept="image/jpeg,image/png">
+        <p class="comp-ayuda">Formato JPG o PNG.</p>
+      </section>
+      <div class="comp-datos">
+        <section class="comp-grupo">
+          <h4>Datos de la competencia</h4>
+          <div class="comp-grid">
+            <div class="comp-campo comp-ancho"><label for="competenciaName">Nombre de la competencia:</label><input
+                class="edit-field-competencias" type="text" id="competenciaName" name="competenciaName" required></div>
+            <div class="comp-campo"><label for="competenciStart">Fecha de inicio:</label><input
+                class="edit-field-competencias" type="date" id="competenciStart" name="competenciStart" required></div>
+            <div class="comp-campo comp-ancho"><label for="competenciaLugar">Lugar de la competencia:</label><input
+                class="edit-field-competencias" type="text" id="competenciaLugar" name="competenciaLugar" required>
+            </div>
+          </div>
+        </section>
+        <section class="comp-grupo">
+          <h4>Participación</h4>
+          <p class="comp-ayuda">Selecciona las opciones disponibles para esta competencia.</p>
+          <fieldset class="comp-opciones">
+            <legend>Ramas</legend>
+            <div id="competenciaRamaInput" class="edit-field-competencias comp-checks"></div>
+          </fieldset>
+          <fieldset class="comp-opciones">
+            <legend>Categorías</legend>
+            <div id="compCategoriaInput" class="edit-field-competencias comp-checks"></div>
+          </fieldset>
+          <fieldset class="comp-opciones">
+            <legend>Tallas de playera</legend>
+            <div id="tamPlayeraInput" class="edit-field-competencias comp-checks"></div>
+          </fieldset>
+        </section>
+        <section class="comp-grupo">
+          <h4>Inscripción y costo</h4>
+          <div class="comp-grid">
+            <div class="comp-campo"><label for="competenciaCosto">Costo:</label><input class="edit-field-competencias"
+                type="text" id="competenciaCosto" name="competenciaCosto" required></div>
+            <div class="comp-campo comp-ancho"><label for="competenciaDDeposito">Datos para depositar:</label><input
+                class="edit-field-competencias" type="text" id="competenciaDDeposito" name="competenciaDDeposito"
+                required></div>
+          </div>
+        </section>
+        <section class="comp-grupo">
+          <h4>Informes</h4>
+          <div class="comp-grid">
+            <div class="comp-campo"><label for="competenciaCelular">Celular:</label><input
+                class="edit-field-competencias" type="text" id="competenciaCelular" name="competenciaCelular"
+                placeholder="Teléfono a 10 dígitos" pattern="\d{10}" maxlength="10"
+                title="Debe contener exactamente 10 dígitos numéricos" required></div>
+            <div class="comp-campo"><label for="competenciaCorreo">Correo:</label><input class="edit-field-competencias"
+                type="text" id="competenciaCorreo" name="competenciaCorreo" required></div>
+            <div class="comp-campo comp-ancho"><label for="competenciaWeb">Página web:</label><input
+                class="edit-field-competencias" type="text" id="competenciaWeb" name="competenciaWeb" required></div>
+          </div>
+        </section>
       </div>
     </div>
+    <div class="action-buttons comp-acciones"><button type="button" class="btnClic"
+        id="salvarCompetencia">Guardar</button><button type="button" class="btnClic laEliminacion"
+        id="eliminarCompetencia" style="display:none;">Eliminar competencia</button></div>
   </div>
+</div>
