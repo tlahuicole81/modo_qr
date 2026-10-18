@@ -3,15 +3,14 @@
 window.addEventListener('DOMContentLoaded', () => {
       // Eliminar un ítem específico
       sessionStorage.removeItem('asociados');
+      sessionStorage.removeItem('relojVigencias');
       sessionStorage.removeItem('sessionToken');
       sessionStorage.removeItem('listaClubes');
       sessionStorage.removeItem('losEventos');
       sessionStorage.removeItem('laAsociacion');
       sessionStorage.removeItem('elCorreo');
       sessionStorage.removeItem('elEstado');
-      sessionStorage.removeItem('lasCompetencias');
-
-      console.log("Se ha eliminado la información de sesión anterior.....");
+      sessionStorage.removeItem('lasCompetencias');      
 
     });
     document.getElementById('loginBtn').addEventListener('click', async () => {
@@ -45,12 +44,11 @@ window.addEventListener('DOMContentLoaded', () => {
         console.log("Resultado: ", result.success)
         if (result.success) {
           console.log('Login exitoso. ¡Bienvenido!');
-          // Guardar el token de sesión y la información del usuario          
-
-          // Redirigir a otra página con la información.          
-          // Guardamos toda la información recibida pero antes la          
-          // convertimos los objetos a string para poder ser almacenados
+          
           sessionStorage.setItem('asociados', JSON.stringify(result.data));
+          if (typeof result.fechaServidor === 'string' && Number.isFinite(Date.parse(result.fechaServidor))) {
+            sessionStorage.setItem('relojVigencias', JSON.stringify({fecha:result.fechaServidor, cliente:performance.timeOrigin + performance.now()}));
+          }
           sessionStorage.setItem('sessionToken', JSON.stringify(result.token));
           sessionStorage.setItem('listaClubes', JSON.stringify(result.clubes));
           sessionStorage.setItem('losEventos', JSON.stringify(result.eventos));
