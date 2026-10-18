@@ -1,11 +1,10 @@
 "use strict";
 
-// Carga local de fragmentos y scripts. No consulta GAS.
 (async function cargarPortal() {
   const secciones = [
     { nombre: 'Asociados', slot: 'slot-asociados', html: 'secciones/asociados.html', boton: 'btnAsociados', scripts: ['secc_asociados.js'], iniciar: 'inicializarValoresAsociados' },
     { nombre: 'Clubes', slot: 'slot-clubes', html: 'secciones/clubes.html', boton: 'btnClubes', scripts: ['secc_clubes.js'], iniciar: 'inicializarClubes' },
-    { nombre: 'Eventos', slot: 'slot-eventos', html: 'secciones/eventos.html', boton: 'btnEventos', scripts: [], iniciar: null, pendiente: true },
+    { nombre: 'Eventos', slot: 'slot-eventos', html: 'secciones/eventos.html', boton: 'btnEventos', scripts: ['secc_eventos.js'], iniciar: 'inicializarEventos' },
     { nombre: 'Competencias', slot: 'slot-competencias', html: 'secciones/competencias.html', boton: 'btnCompetencia', scripts: ['secc_comp.js'], iniciar: 'inicializarCompetencias' },
     { nombre: 'RUD', slot: 'slot-rud', html: 'secciones/rud.html', boton: 'btnRUD', scripts: ['secc_rud.js'], iniciar: 'generarCheckboxesRUD' }
   ];
@@ -57,8 +56,7 @@
       window.location.replace('login.html');
       return;
     }
-
-    // Respetar el orden de scripts clásicos y aislar los módulos ausentes.
+    
     for (let i = 0; i < secciones.length; i++) {
       const seccion = secciones[i];
       if (seccion.pendiente) {
@@ -80,7 +78,7 @@
       } catch (error) {
         console.error(`Error al inicializar ${seccion.nombre}:`, error);
         document.getElementById(seccion.boton).title = 'Sección no disponible';
-        avisar(`${seccion.nombre} no está disponible. <en revisión Paco>.`);
+        avisar(`${seccion.nombre} no está disponible. Puedes utilizar las demás secciones.`);
       }
     }
     guia.textContent = disponibles ? 'Selecciona una sección para comenzar.' : 'No se pudieron cargar las secciones. Actualiza la página o inicia sesión nuevamente.';
