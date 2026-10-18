@@ -1,5 +1,8 @@
 <div class="content" id="usuarios">
 <h2>Gestión de Asociados</h2>
+<div id="resumenVigencias" class="resumen-vigencias" aria-live="polite"></div>
+<p class="ayuda-busqueda">Resumen de los asociados filtrados · datos guardados.</p>
+<button id="gestionarVigencias" type="button">Activar vigencias</button>
 <label for="clubSelect">Filtrar por club:</label>
 <select id="clubSelect">
 <option value="Todos los asociados">Todos los asociados</option>
@@ -11,11 +14,21 @@
 </div>
 <p class="ayuda-busqueda" id="ayudaBusquedaAsociados">Busca entre los asociados del club seleccionado.</p>
 <p aria-live="polite" class="estado-busqueda" id="estadoBusquedaAsociados" role="status"></p>
-<label for="userSelect" id="indicadorAsociados">Asociados:</label>
+<div id="seleccionIndividual"><label for="userSelect" id="indicadorAsociados">Asociados:</label>
 <select id="userSelect">
 <option value="">Selecciona un asociado</option>
 </select>
 
+</div>
+<section id="gestionVigencias" hidden aria-labelledby="tituloVigencias">
+<h3 id="tituloVigencias" tabindex="-1">Activación de vigencias</h3>
+<p id="periodoVigencias" class="section-help"></p>
+<p id="notaCalendario" class="ayuda-busqueda"></p>
+<div id="listaVigencias" class="lista-vigencias"></div>
+<p id="pendientesVigencias" role="status"></p>
+<p id="estadoVigencias" role="status"></p>
+<div class="action-buttons"><button id="guardarVigencias" type="button">Guardar cambios</button><button id="cancelarVigencias" type="button" class="boton-secundario">Cancelar / volver a fichas</button></div>
+</section>
 <section id="userDetails" style="display:none" aria-label="Ficha del asociado">
   <header class="asociado-cabecera">
     <div id="previewImgAsociado" class="foto-asociado"></div>
@@ -28,7 +41,7 @@
   </div>
   <section id="panelGeneral" role="tabpanel" aria-labelledby="tabGeneral">
   <form id="formGeneral">
-<section class="datos-grupo"><h4>Datos personales</h4><div class="datos-grid"><div class="dato"><label for="afiliadoVigenteInput">Afiliado vigente</label><span id="afiliadoVigente"></span><select class="edit-field-asociados" id="afiliadoVigenteInput"><option value="">Sin información</option><option value="true">Vigente</option><option value="false">No vigente</option></select></div><div class="dato">
+<section class="datos-grupo"><h4>Datos personales</h4><div class="datos-grid"><div class="dato"><label for="afiliadoVigenteInput">Estado</label><span id="afiliadoVigente"></span><small>Se modifica desde “Activar vigencias”.</small></div><div class="dato">
 <label for="nombreInput">Nombre</label>
 <span id="nombre"></span>
 <input class="edit-field-asociados" id="nombreInput" type="text"/>
