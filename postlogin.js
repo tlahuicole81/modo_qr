@@ -1,4 +1,3 @@
-
 "use strict";
 
 let initialData = {};
@@ -182,7 +181,6 @@ async function enviarPOST(jsonData) {
   }
 }
 
-
 function leeCheckBoxes(nombreGrupo) {
   return Array.from(document.querySelectorAll(`input[name="${nombreGrupo}"]:checked`))
     .map(checkbox => checkbox.value)
@@ -198,7 +196,6 @@ function comparaArrays(arr1, arr2) {
 
   return sorted1.every((val, index) => val === sorted2[index]);
 }
-
 
 /* Función compartida
 */
