@@ -1,6 +1,4 @@
 "use strict";
-
-
 const selectClubes = $("clubesSelect");
 const inputClub = $("clubNombreInput");
 const form = $("clubForm");
