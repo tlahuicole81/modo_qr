@@ -291,7 +291,6 @@ function habilitaBotonesPArteCompet() {
   competenciasSelect.dispatchEvent(new Event('change'));
 }
 
-
 function populateFormCompetencias(selectedCompetencia) {  
   Object.entries(fieldMappingCompetencia).forEach(([fieldId, config]) => {
     const viewField = $(fieldId); // fieldId corresponde al nombre de los controles html
