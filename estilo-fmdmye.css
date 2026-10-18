@@ -1,3 +1,4 @@
+/* FMDMYE v1: estilo compartido, sin fuentes ni dependencias externas. */
 :root {
   --azul: #1459a6;
   --azul-hover: #0d4381;
@@ -176,3 +177,83 @@ hr { border: 0; border-top: 1px solid #e0e7ef; margin: 28px 0; }
 }
 #usuarios .asociado-tabs button[aria-selected="false"]:hover { background:#e4edf8; }
 #usuarios .asociado-tabs button[aria-selected="true"]:hover { background:#0d4381; border-color:#0d4381; }
+/* v6: resumen y edición conjunta de afiliaciones */
+#usuarios .resumen-vigencias { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+#usuarios .resumen-vigencias > div { display:flex; flex-direction:column; padding:16px; background:#edf4fc; border:1px solid #cfdeef; border-radius:12px; }
+#usuarios .resumen-vigencias span { font-size:.8rem; color:#405a73; }
+#usuarios .resumen-vigencias strong { font-size:1.65rem; color:#1459a6; }
+#usuarios #gestionarVigencias { margin:18px 0 6px; }
+#usuarios .fila-vigencia { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; padding:16px 0; border-bottom:1px solid #dde6ef; }
+#usuarios .persona-vigencia { display:flex; align-items:center; gap:12px; min-width:0; flex:1 1 260px; }
+#usuarios .persona-vigencia strong { font-weight:600; overflow-wrap:anywhere; }
+#usuarios .persona-vigencia small { display:block; color:#536578; }
+#usuarios .miniatura-vigencia { width:48px; height:48px; flex:0 0 48px; border-radius:50%; background:#e0ebf8; color:#1459a6; display:grid; place-items:center; overflow:hidden; }
+#usuarios .miniatura-vigencia img { width:48px; height:48px; object-fit:cover; }
+#usuarios .opciones-vigencia { display:flex; gap:18px; flex-wrap:wrap; }
+#usuarios .opciones-vigencia label { display:flex; align-items:center; gap:8px; margin:0; min-height:44px; font-weight:400; }
+#usuarios .opciones-vigencia label:has(input:disabled) { color:#66788a; }
+#usuarios .vigencia-error { width:100%; color:#963a26; }
+#usuarios #pendientesVigencias, #usuarios #estadoVigencias { margin-top:18px; }
+#usuarios #notaCalendario:not(:empty) { background:#fff2d9; color:#704709; padding:12px; border-radius:8px; }
+#usuarios #panelGeneral.editando #afiliadoVigente { display:block; }
+@media(max-width:480px) {
+ #usuarios .resumen-vigencias { gap:6px; }
+ #usuarios .resumen-vigencias > div { padding:10px; }
+ #usuarios .resumen-vigencias span { font-size:.73rem; }
+ #usuarios .opciones-vigencia { margin-left:60px; gap:12px; }
+}
+
+
+/* Añadir al final de estilo-fmdmye.css */
+#usuarios .fila-vigencia[data-estado-vigencia] {
+  border-left: 4px solid #94a3b8;
+}
+#usuarios .fila-vigencia .opciones-vigencia {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+#usuarios .fila-vigencia input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #15803d;
+}
+#usuarios .fila-vigencia input[type="checkbox"]:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 3px;
+}
+#usuarios .fila-vigencia .estado-vigencia {
+  display: inline-block;
+  padding: 4px 9px;
+  border-radius: 6px;
+  font-size: .82rem;
+  line-height: 1.4;
+  font-weight: 600;
+  color: #475569;
+  background: #f1f5f9;
+}
+#usuarios .fila-vigencia[data-estado-vigencia="confirmada"] {
+  border-left-color: #15803d;
+}
+#usuarios .fila-vigencia[data-estado-vigencia="confirmada"] .estado-vigencia {
+  color: #166534;
+  background: #dcfce7;
+}
+#usuarios .fila-vigencia[data-estado-vigencia="pendiente"] {
+  border-left-color: #b45309;
+  background: #fffbeb;
+}
+#usuarios .fila-vigencia[data-estado-vigencia="pendiente"] input[type="checkbox"] {
+  accent-color: #b45309;
+  outline: 2px solid #b45309;
+  outline-offset: 2px;
+}
+#usuarios .fila-vigencia[data-estado-vigencia="pendiente"] input[type="checkbox"]:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 3px;
+}
+#usuarios .fila-vigencia[data-estado-vigencia="pendiente"] .estado-vigencia {
+  color: #92400e;
+  background: #fef3c7;
+}
