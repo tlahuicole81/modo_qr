@@ -243,15 +243,130 @@ async function eliminarAsociadoActual() {
     persistirAsociadosSesion(); ocultarFichaAsociados(); mostrarToast('Asociado eliminado.');
   });
 }
+
 async function generarCredencialAsociado() {
-  if (!asociadoActual) return;
-  if (!confirm(`¿Generar credencial para ${nombreCompletoAsociado(asociadoActual)}?`)) return;
+  if (!asociadoActual || operacionAsociado) return;
+
+  if (hayCambiosAsociados()) {
+    $aso('estadoGeneral').textContent = 'Guarda o cancela los cambios antes de generar la credencial.';
+    return;
+  }
+
+  const asociado = asociadoActual;
+  const nombre = nombreCompletoAsociado(asociado);
+
+  if (!confirm(`¿Generar credencial para ${nombre}?`)) return;
+
+  const datos = {};
+
+  for (const clave of [
+    'ID', 'CURP', 'Nombre', 'Apellido Paterno',
+    'Apellido Materno', 'Alergias', 'Enfermedades',
+    'Tipo de sangre', 'Foto', 'Club'
+  ]) {
+    datos[clave] = asociado[clave];
+  }
+
+  Object.assign(datos, {
+    EstadoAsociacion: elEstado,
+    correo: elCorreo
+  });
+
+  const solicitud = {
+    destino: 'Credencial',
+    datos
+  };
+
+  //console.log("Para credencial: ", JSON.stringify(datos));
   await operacionFicha('estadoGeneral', async () => {
-    const datos = {};
-    for (const clave of ['ID', 'CURP', 'Nombre', 'Apellido Paterno', 'Apellido Materno', 'Alergias', 'Enfermedades', 'Tipo de sangre', 'Foto', 'Club']) datos[clave] = asociadoActual[clave];
-    Object.assign(datos, { EstadoAsociacion: elEstado, correo: elCorreo });
-    const r = await solicitarAsociados({ destino: 'Credencial', datos });
-    $aso('estadoGeneral').textContent = r.message || 'Credencial solicitada.';
+    const modal = document.createElement('dialog');
+    modal.setAttribute('aria-label', 'Generando credencial');
+    modal.style.cssText = `
+      border: 0;
+      border-radius: 16px;
+      padding: 28px;
+      width: 420px;
+      max-width: calc(100% - 32px);
+      color: #172c40;
+      box-shadow: 0 20px 80px #0003;
+    `;
+
+    const titulo = document.createElement('h3');
+    titulo.textContent = 'Generando credencial…';
+    titulo.style.marginTop = '0';
+
+    const descripcion = document.createElement('p');
+    descripcion.textContent =
+      `Estamos esperando la confirmación del servidor para ${nombre}. ` +
+      'La generación del PDF y el QR puede tardar. ' +
+      'Mantén esta página abierta.';
+
+    const tiempo = document.createElement('p');
+    tiempo.style.marginTop = '16px';
+
+    const aviso = document.createElement('p');
+    aviso.setAttribute('role', 'status');
+    aviso.style.marginTop = '12px';
+
+    modal.append(titulo, descripcion, tiempo, aviso);
+    modal.addEventListener('cancel', evento => evento.preventDefault());
+    document.body.append(modal);
+
+    const inicio = Date.now();
+    let intervalo;
+
+    try {
+      modal.showModal();
+
+      const actualizarTiempo = () => {
+        const segundos = Math.floor((Date.now() - inicio) / 1000);
+        tiempo.textContent = `Tiempo transcurrido: ${segundos} s`;
+
+        if (segundos >= 60) {
+          aviso.textContent =
+            'Seguimos esperando la respuesta. No envíes otra solicitud.';
+        }
+      };
+
+      actualizarTiempo();
+      intervalo = setInterval(actualizarTiempo, 1000);
+
+      $aso('estadoGeneral').textContent =
+        'Generando credencial. Esperando confirmación de GAS…';
+
+      const respuesta = await fetch(URL_ACTIVA, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'text/plain;charset=utf-8'
+        },
+        body: JSON.stringify(solicitud)
+      });
+
+      if (!respuesta.ok) {
+        throw new Error(`Respuesta HTTP ${respuesta.status}`);
+      }
+
+      const resultado = await respuesta.json();
+
+      if (resultado.success !== true) {
+        $aso('estadoGeneral').textContent =
+          resultado.message || 'El servidor no confirmó la generación.';
+        return;
+      }
+
+      $aso('estadoGeneral').textContent =
+        resultado.message || 'Se confirmó la generación de la credencial.';
+    } catch (error) {
+      console.error('Error al solicitar la credencial:', error);
+
+      $aso('estadoGeneral').textContent =
+        'No se pudo confirmar el resultado. El servidor podría seguir procesando ' +
+        'la credencial. Revisa el correo antes de reintentar.';
+    } finally {
+      clearInterval(intervalo);
+      if (modal.open) modal.close();
+      modal.remove();
+    }
   });
 }
 
